@@ -64,8 +64,17 @@ class Inventory{   //create and Inventory class that has the product as a parame
     
     listOrders(){
         this.orders.forEach(order => {   //for each order in the order array, list the details of the order 
-            console.log(order.getOrderDetails());})
-    }
+            console.log(order.getOrderDetails());});}
+    
+
+    //Task 5: Implementing Product Restocking 
+    restockProduct(productId, quantity){  //add a new method that will restock the product with the parameters
+        const product = this.products.find(p => p.id === productId); //searches the products array for the product based on the product Id
+        if (product){   //if the product exists in the array fo the following
+            product.stock += quantity;  //for the product's stock, add the quantity plugged in when the method is called
+            console.log(`Product ${productId} has been restocked. New Stock Level: ${product.stock}`)} //log that the restock has been completed
+        else{
+            console.log(`Product not Found`);};} //if the product is not found a message will appear
 }
 
 const inventory = new Inventory();  //initiate a new inventory 
@@ -77,3 +86,8 @@ inventory.listProducts();  //call the method list products to list the products'
 inventory.placeOrder(601, prod1, 2);  //establish a new order to place
 inventory.listOrders();  //call the method to list the details of the order after it is placed
 console.log(prod1.getDetails());  //call the method to list the details of the product ordered
+
+
+//Task 5: Implementing Product Restocking
+inventory.restockProduct(101, 5);  //call the restockProduct method to restock 5 quantity into the stock for the product with the 101 product ID
+console.log(prod1.getDetails());  //log the updated product details to the console
