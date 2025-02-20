@@ -36,3 +36,20 @@ class Order {   //Create an Order class that has the properties below
 const order1 = new Order(501, prod1, 2); //Initiate a new order with the parameter for details
 console.log(order1.getOrderDetails()); //call the Order Details method in the class to print out the details of the order
 console.log(prod1.getDetails()); //call the get Details method from the Product class to print out the updated details of the Product
+
+
+//Task 3: Creating an Inventory Class
+class Inventory{   //create and Inventory class that has the product as a parameter
+    constructor(products){
+        this.products = [];} //establish products as an array of products for the inventory
+    
+    addProduct(product){  
+        this.products.push(product);} //add a product to the array of products using the push action
+    
+    listProducts(){
+    this.products.forEach(product =>{  //for each product in the array of products get the details of the product and print to the console
+    console.log(product.getDetails())});}
+}
+const inventory = new Inventory();  //initiate a new inventory 
+inventory.addProduct(prod1);  //add product1 to the inventory class and run it through the methods to add it to the array of products
+inventory.listProducts();  //call the method list products to list the products' information from the array
